@@ -32,6 +32,7 @@ Set Up Environment / Project Installation Guide
 
 ### A) **Environment Setup**
 
+
 #### 1\. Install Rust
 
 Run the following command to install Rust:
