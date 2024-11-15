@@ -13,6 +13,7 @@ This repository follows the recommended structure for a Soroban project:
 │       └── Cargo.toml
 ├── Cargo.toml
 └── README.md
+
 ### Key Points:
 
 *   New Soroban contracts can be placed inside the contracts directory, with each contract having its own folder.
