@@ -1,108 +1,151 @@
-# Soroban Project
+Soroban Project
+===============
 
-## Project Structure
+Project Structure
+-----------------
 
-This repository uses the recommended structure for a Soroban project:
-```text
-.
-├── contracts
-│   └── hello_world
-│       ├── src
-│       │   ├── lib.rs
-│       │   └── test.rs
-│       └── Cargo.toml
-├── Cargo.toml
-└── README.md
-```
+This repository follows the recommended structure for a Soroban project:
 
-- New Soroban contracts can be put in `contracts`, each in their own directory. There is already a `hello_world` contract in there to get you started.
-- If you initialized this project with any other example contracts via `--with-example`, those contracts will be in the `contracts` directory as well.
-- Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
-- Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   textCopy code.  ├── contracts  │   └── hello_world  │       ├── src  │       │   ├── lib.rs  │       │   └── test.rs  │       └── Cargo.toml  ├── Cargo.toml  └── README.md   `
 
+### Key Points:
 
+*   New Soroban contracts can be placed inside the contracts directory, with each contract having its own folder.
+    
+*   The hello\_world contract is provided as an example to get started.
+    
+*   If you initialized the project with other example contracts via the --with-example flag, those will also be in the contracts directory.
+    
+*   Each contract has its own Cargo.toml for dependencies, relying on the top-level Cargo.toml workspace.
+    
+*   Frontend libraries (if included) can be placed at the top level of the project directory.
+    
 
+Set Up Environment / Project Installation Guide
+-----------------------------------------------
 
+### A) **Environment Setup**
 
-## Set Up Environment / Project Installation Guide
-## - A) Environment Setup:
-## - 1.Install Rust, using command:
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#### 1\. Install Rust
 
-## Install the Soroban CLI using below mentioned command. For more info visit => Soroban docs
-cargo install --locked soroban-cli
+Run the following command to install Rust:
 
-Install Node.js
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codecurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh   `
 
-# -2.Get the Freighter Wallet extension for you browser.
-- Once enabled, then got to the network section and connect your wallet to the testnet.
+#### 2\. Install Soroban CLI
 
-- Install wasm32-unknown-unknown package using command:
+Install the Soroban CLI using the following command:
 
-rustup target add wasm32-unknown-unknown
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codecargo install --locked soroban-cli   `
 
-- To configure your CLI to interact with Testnet, run the following command:
+For more information, visit the Soroban documentation.
 
-soroban network add \
-  --global testnet \
-  --rpc-url https://soroban-testnet.stellar.org:443 \
-  --network-passphrase "Test SDF Network ; September 2015"
+#### 3\. Install Node.js
 
-- Step 1: Setting Up the Project
-git clone https://github.com/NayanSubedi/Stellar-Product_CRUD
+Make sure Node.js is installed on your system. You can download it from [here](https://nodejs.org/).
 
-cd product-crud
+#### 4\. Install Freighter Wallet
 
-## Testing and Deploying the Contract
-- In order to deploy the smartcontract you will need an account. You can either use the an account from the Freighter Wallet or can configure an account named alice in the testnet using the command:
+*   Get the Freighter Wallet extension for your browser.
+    
+*   After enabling it, go to the **network section** and connect your wallet to the **testnet**.
+    
 
-soroban keys generate --global alice --network testnet
+#### 5\. Install wasm32-unknown-unknown Target
 
-- You can see the public key of account alice:
-soroban keys address alice
+Run the following command to add the WebAssembly target:
 
-=> Go inside the /product-crud directory and do the below mentioned steps:
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy coderustup target add wasm32-unknown-unknown   `
 
-- Build the contract:
-soroban contract build
+#### 6\. Configure Soroban CLI for Testnet
 
-- Alternte command:
+Configure the Soroban CLI to interact with the testnet using the following command:
 
-cargo build --target wasm32-unknown-unknown --release
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban network add \    --global testnet \    --rpc-url https://soroban-testnet.stellar.org:443 \    --network-passphrase "Test SDF Network ; September 2015"   `
 
-- Install Optimizer:
-cargo install --locked soroban-cli --features opt
+### B) **Setting Up the Project**
 
-- Build an Opmize the contract:
-soroban contract optimize --wasm target/wasm32-unknown-unknown/release/hello_world.wasm 
+1.  **Clone the Repository:**
+    
 
-- Steps to the Deploy smart-contract on testnet:
-deploy the smartcontract on the testnet and get deployed address of the smartcontract using the following command:
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codegit clone https://github.com/NayanSubedi/Stellar-Product_CRUD  cd product-crud   `
 
-stellar contract deploy --wasm target/wasm32-unknown-unknown/release/hello_world.wasm --network testnet --source nyn
+Testing and Deploying the Contract
+----------------------------------
 
+### 1\. **Generate an Account**
 
-## Invoke functions from the smart-contract:
- - To invoke any of the function from the smartcontract you can use this command fromat.
-soroban contract invoke \
-  --id <DEPLOYED_CONTRACT_ADDRESS> \
-  --source <YOUR_ACCOUNT_NAME> \
-  --network testnet \
-  -- \
-  <FUNCTION_NAME> --<FUNCTION_PARAMETER> <ARGUMENT>
+To deploy the contract, you will need an account. You can either use your Freighter Wallet account or generate a new account on the testnet:
 
-- Here are example soroban contract invoke commands for each of the functions in the ProductContract smart contract, using dummy data. Replace <DEPLOYED_CONTRACT_ADDRESS>, <YOUR_ACCOUNT_NAME>, and other placeholders with actual values.
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban keys generate --global alice --network testnet   `
 
-## 1. Create a Product
-soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- create_product --name "Sample Product" --description "A description of the sample product." --price 1000
+To view the public key of the account:
 
-## 2. Get a Product by ID
-soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- get_product_by_id --product_id 1
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban keys address alice   `
 
-## 3. Update a Product
-soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- update_product --product_id 1 --new_name "Updated Product" --new_description "Updated description of the product." --new_price 1200
+### 2\. **Build the Contract**
 
-##4. Delete a Product
-soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- delete_product --product_id 1
+To build the smart contract, use the following command:
 
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban contract build   `
 
+Alternatively, you can use Cargo directly:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codecargo build --target wasm32-unknown-unknown --release   `
+
+### 3\. **Install Optimizer (Optional)**
+
+If you need to optimize the contract, install the optimizer tool with:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codecargo install --locked soroban-cli --features opt   `
+
+### 4\. **Optimize the Contract (Optional)**
+
+To optimize the contract for deployment, run the following command:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban contract optimize --wasm target/wasm32-unknown-unknown/release/hello_world.wasm   `
+
+### 5\. **Deploy the Contract**
+
+To deploy the contract to the testnet, use the following command:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codestellar contract deploy --wasm target/wasm32-unknown-unknown/release/hello_world.wasm --network testnet --source nyn   `
+
+### 6\. **Invoke Functions from the Smart Contract**
+
+You can invoke functions in the deployed smart contract using the following command format:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`bashCopy codesoroban contract invoke \    --id  \    --source  \    --network testnet \    -- \    --` 
+
+Below are example commands to invoke different functions in the ProductContract:
+
+#### 1\. **Create a Product**
+
+To create a new product:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban contract invoke \    --id  \    --source  \    --network testnet \    -- create_product --name "Sample Product" --description "A description of the sample product." --price 1000   `
+
+#### 2\. **Get a Product by ID**
+
+To retrieve a product by its ID:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban contract invoke \    --id  \    --source  \    --network testnet \    -- get_product_by_id --product_id 1   `
+
+#### 3\. **Update a Product**
+
+To update an existing product:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban contract invoke \    --id  \    --source  \    --network testnet \    -- update_product --product_id 1 --new_name "Updated Product" --new_description "Updated description of the product." --new_price 1200   `
+
+#### 4\. **Delete a Product**
+
+To delete a product by ID:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codesoroban contract invoke \    --id  \    --source  \    --network testnet \    -- delete_product --product_id 1   `
+
+Conclusion
+----------
+
+Following these steps, you will be able to set up, test, and deploy Soroban smart contracts on the testnet. The provided examples demonstrate how to interact with the ProductContract, which allows basic CRUD operations on products.
+
+Make sure to replace placeholders like and with actual values when invoking functions.
