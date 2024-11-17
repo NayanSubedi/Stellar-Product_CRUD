@@ -74,7 +74,8 @@ Configure the Soroban CLI to interact with the testnet using the following comma
 
 1.  **Clone the Repository:**
 
-` git clone https://github.com/NayanSubedi/Stellar-Product_CRUD  cd product-crud`
+` git clone https://github.com/NayanSubedi/Stellar-Product_CRUD  
+cd product-crud`
 
 Testing and Deploying the Contract
 ----------------------------------

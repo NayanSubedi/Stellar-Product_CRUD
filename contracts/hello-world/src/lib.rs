@@ -1,29 +1,28 @@
-#![no_std] // We don't use the Rust standard library in smart contracts
+#![no_std] 
 use soroban_sdk::{contracttype, Env, String, log, Vec};
 
-// Struct to represent a product in our dApp
+
 #[contracttype]
 #[derive(Clone)]
 pub struct Product {
-    pub id: u64,              // Unique ID for the product
-    pub name: String,         // Name of the product
-    pub description: String,  // Description of the product
-    pub price: u64,           // Price of the product
+    pub id: u64,              
+    pub name: String,         
+    pub description: String,  
+    pub price: u64,           
 }
 
 use soroban_sdk::{contract, contractimpl, symbol_short, Symbol};
 
-// Define a contract type called ProductContract
 #[contract]
 pub struct ProductContract;
 
-// Enum for referencing product storage
+
 #[contracttype]
 pub enum Productbook {
     Product(u64),
 }
 
-// Symbol to track the total count of products
+
 const COUNT_PRODUCT: Symbol = symbol_short!("C_PROD");
 
 #[contractimpl]
