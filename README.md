@@ -89,6 +89,10 @@ To view the public key of the account:
 
 `soroban keys address <ACCOUNT_NAME>`
 
+To view the private key of the account:
+
+`soroban keys show <ACCOUNT_NAME>`
+
 ### 2\. **Build the Contract**
 
 To build the smart contract, use the following command:
@@ -98,6 +102,7 @@ To build the smart contract, use the following command:
 Alternatively, you can use Cargo directly:
 
 `cargo build --target wasm32-unknown-unknown --release`
+
 
 ### 3\. **Install Optimizer (Optional)**
 
@@ -141,6 +146,8 @@ To create a new product:
 To retrieve a product by its ID:
 `soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- get_product_by_id --product_id 1`
 
+
+get_all_products
 #### 3\. **Update a Product**
 
 To update an existing product:
