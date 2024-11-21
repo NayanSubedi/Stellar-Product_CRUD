@@ -103,8 +103,6 @@ Alternatively, you can use Cargo directly:
 
 `cargo build --target wasm32-unknown-unknown --release`
 
-# GD2SBJWQXVW2C3BKPJVROIYMMMNNFLXI35ABN4FNIPDLNZURRZBJE6V6
-# CACPC6G65T3JCWDOYSD7W5N2ULHVQXURUQRQS46NS66EXDORXJJJWI4M
 ### 3\. **Install Optimizer (Optional)**
 
 If you need to optimize the contract, install the optimizer tool with:
@@ -153,7 +151,7 @@ get_all_products
 
 To update an existing product:
 
-`soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- update_product --product_id 1 --new_name "Updated Product" --new_description "Updated description of the product." --new_price 1200`
+`soroban contract invoke --id <DEPLOYED_CONTRACT_ADDRESS> --source <YOUR_ACCOUNT_NAME> --network testnet -- update_product --product_id 1 --new_details '[["Name", "MacBook Pro"], ["Category", "Laptop"], ["Brand", "Apple"], ["Model", "M2 Pro"], ["RAM", "16GB"], ["Storage", "512GB"], ["Color", "Space Gray"]]'`
 
 #### 4\. **Delete a Product**
 
